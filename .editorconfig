@@ -1,0 +1,8 @@
+[*]
+tab_width = 4
+indent_style = space
+
+[*.{fs,fsx,fsi}]
+fsharp_multiline_bracket_style = stroustrup
+fsharp_newline_before_multiline_computation_expression = false
+fsharp_max_infix_operator_expression = 20
