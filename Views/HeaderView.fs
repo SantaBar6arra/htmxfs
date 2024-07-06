@@ -2,27 +2,7 @@ module Views.HeaderView
 
 open Feliz.ViewEngine
 open Feliz.ViewEngine.Htmx
-
-type Language =
-    | En
-    | Ua
-
-    [<Literal>]
-    static let CodeEn = "en"
-
-    [<Literal>]
-    static let CodeUa = "ua"
-
-    static member Value(language) =
-        match language with
-        | En -> CodeEn
-        | Ua -> CodeUa
-
-    static member From(value) : Language option =
-        match value with
-        | CodeEn -> Some En
-        | CodeUa -> Some Ua
-        | _ -> None
+open Models
 
 let languageButton language =
     Html.button [
@@ -42,7 +22,7 @@ let languageButton language =
 
 let headerButtons = [
     Html.button [
-        hx.get "/"
+        hx.get "/home"
         hx.swap.innerHTML
         hx.trigger "click"
         hx.target "#main"

@@ -7,7 +7,7 @@ open Routes
 
 let app =
     GET
-    >=> choose [ mainApp; pageApp ]
+    >=> choose [ mainApp; homeApp; projectsApp; aboutApp ]
 
 
 startWebServer defaultConfig app

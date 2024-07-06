@@ -4,9 +4,13 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Models/Models.fs" />
+    <Compile Include="Mocks/Mocks.fs" />
+    <Compile Include="Views/AboutView.fs" />
+    <Compile Include="Views/HomeView.fs" />
+    <Compile Include="Views/ProjectsView.fs" />
     <Compile Include="Views/HeaderView.fs" />
     <Compile Include="Views/MainView.fs" />
-    <Compile Include="Views/PageView.fs" />
     <Compile Include="Layouts/MainLayout.fs" />
     <Compile Include="Routes.fs" />
     <Compile Include="Program.fs" />

@@ -5,7 +5,11 @@ open Suave.Operators
 open Suave.Successful
 open Layouts.MainLayout
 open Views.MainView
-open Views.PageView
+open Views.ProjectsView
+open Mocks
+open Views.HomeView
+open Feliz.ViewEngine
+open Views.AboutView
 
 let mainApp =
     path "/"
@@ -13,8 +17,19 @@ let mainApp =
          |> mainLayout
          |> OK)
 
-let pageApp =
-    pathScan "/page/%d" (fun pageNumber ->
-        pageNumber
-        |> pageView
-        |> OK)
+let homeApp =
+    path "/home"
+    >=> OK(
+        homeView
+        |> Render.htmlView // TODO: is it a good idea to use Render.htmlView here?
+    )
+
+let projectsApp =
+    path "/projects"
+    >=> (projectsResponse
+         |> projectsView
+         |> OK)
+
+let aboutApp =
+    path "/about"
+    >=> OK aboutView
