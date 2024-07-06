@@ -1,7 +1,6 @@
 module Layouts.MainLayout
 
 open Feliz.ViewEngine
-open Feliz.ViewEngine.Htmx
 
 let mainLayout (body: ReactElement list) =
     Html.html [

@@ -2,6 +2,7 @@ module Views.MainView
 
 open Feliz.ViewEngine
 open Feliz.ViewEngine.Htmx
+open HeaderView
 
 let pageButtons =
     seq { 1..2 }
@@ -10,12 +11,12 @@ let pageButtons =
             hx.get (sprintf "/page/%d" i)
             hx.swap.innerHTML
             hx.trigger "click"
-            hx.target "#page"
+            hx.target "#main"
             prop.text (sprintf "Page %d" i)
         ])
     |> List.ofSeq
 
 let mainView =
-    Html.h1 "HTMX is COOL"
-    :: pageButtons
-    @ [ Html.div [ prop.id "page" ] ]
+    [ headerView; Html.h1 "HTMX is COOL" ]
+    @ pageButtons
+    @ [ Html.div [ prop.id "main" ] ]
